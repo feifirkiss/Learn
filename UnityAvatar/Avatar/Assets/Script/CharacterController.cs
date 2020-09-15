@@ -62,8 +62,8 @@ public class UCharacterController {
         // Combine meshes
 		App.Game.CharacterMgr.CombineSkinnedMgr.CombineObject (Instance, meshes, combine);
 
-        // Delete temporal resources
-        for (int i = 0; i < objects.Length; i++) {
+        // Delete temporal resources（objects）
+        for ( int i = 0; i < objects.Length; i++) {
 			
 			GameObject.DestroyImmediate (objects [i].gameObject);
 		}
@@ -156,7 +156,7 @@ public class UCharacterController {
 			objects[i] = GameObject.Instantiate (res) as GameObject;
 			meshes[i] = objects[i].GetComponentInChildren<SkinnedMeshRenderer> ();
 		}
-		
+		//换装部件后，进行合并
 		App.Game.CharacterMgr.CombineSkinnedMgr.CombineObject (Instance, meshes, combine);
 		
 		for (int i = 0; i < objects.Length; i++) {

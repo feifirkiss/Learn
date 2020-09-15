@@ -45,7 +45,7 @@ public class Main : MonoBehaviour {
 	private const int DEFAULT_CHEST = 0;
 	private const int DEFAULT_HAND = 0;
 	private const int DEFAULT_FEET = 1;
-	private const bool DEFAULT_COMBINEMATERIAL = true;
+	private const bool DEFAULT_COMBINEMATERIAL = false;
 	
     /// <summary>
     /// Use this for GUI display.

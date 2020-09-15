@@ -71,12 +71,12 @@ public class UCombineSkinnedMgr {
 			{
 				Textures.Add(materials[i].GetTexture(COMBINE_DIFFUSE_TEXTURE) as Texture2D);
 			}
-
+            //宽高要为2N次幂
 			newDiffuseTex = new Texture2D(COMBINE_TEXTURE_MAX, COMBINE_TEXTURE_MAX, TextureFormat.RGBA32, true);
 			Rect[] uvs = newDiffuseTex.PackTextures(Textures.ToArray(), 0);
-			newMaterial.mainTexture = newDiffuseTex;
+			newMaterial.mainTexture = newDiffuseTex; //更新合并纹理到新材质
 
-            // reset uv
+            // reset uv 重新计算UV(贴图合并了需要重新计算UV)
 			Vector2[] uva, uvb;
 			for (int j = 0; j < combineInstances.Count; j++)
 			{
@@ -103,7 +103,7 @@ public class UCombineSkinnedMgr {
 		r.bones = bones.ToArray();// Use new bones
 		if (combine)
 		{
-			r.material = newMaterial;
+			r.material = newMaterial;//使用新的合并后的材质(设置新材质需重新设置UV)
 			for (int i = 0 ; i < combineInstances.Count ; i ++)
 			{
 				combineInstances[i].mesh.uv = oldUV[i];
