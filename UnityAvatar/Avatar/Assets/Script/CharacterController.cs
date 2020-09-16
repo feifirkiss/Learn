@@ -63,13 +63,14 @@ public class UCharacterController {
 		App.Game.CharacterMgr.CombineSkinnedMgr.CombineObject (Instance, meshes, combine);
 
         // Delete temporal resources（objects）
-        for ( int i = 0; i < objects.Length; i++) {
-			
-			GameObject.DestroyImmediate (objects [i].gameObject);
-		}
-		
-		// Create weapon
-		res = Resources.Load ("Prefab/" + weapon);
+        for ( int i = 0; i < objects.Length; i++ )
+        {
+
+            GameObject.DestroyImmediate(objects[i].gameObject);
+        }
+
+        // Create weapon
+        res = Resources.Load ("Prefab/" + weapon);
 		WeaponInstance = GameObject.Instantiate (res) as GameObject;
 		
 		Transform[] transforms = Instance.GetComponentsInChildren<Transform>();
